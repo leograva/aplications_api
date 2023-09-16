@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "aplications-api"
+version = "0.1.0"
+description = ""
+authors = ["Leonardo Grava de Mendonça <leonardo.grava@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
