@@ -3,7 +3,10 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# seeing all the entries    
+@app.route('/')
+def index():
+    return jsonify({'hello': 'world'})
+    
 @app.route("/get", methods=['GET'])
 def get_all_aplications():
     """ Essa função retorna todas aplicações"""
@@ -16,7 +19,6 @@ def get_all_aplications():
             }
 
         list_aplications.append(aplications_dict)
-
     return jsonify({'applications':list_aplications})
 
 @app.route("/save", methods=['POST'])
@@ -44,7 +46,7 @@ def deleting_aplication():
 
 if __name__ == '__main__':
     # Debug/Development
-     app.run(debug=True, host="0.0.0.0", port="5000")
+    app.run(debug=True, host="0.0.0.0", port="5000")
     # Production
     #http_server = WSGIServer(('', 5000), app)
     #http_server.serve_forever()
