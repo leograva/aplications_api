@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 
@@ -41,5 +42,9 @@ def deleting_aplication():
     return jsonify(message)
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    # Debug/Development
+    # app.run(debug=True, host="0.0.0.0", port="5000")
+    # Production
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
